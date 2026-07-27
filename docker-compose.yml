@@ -8,3 +8,15 @@ services:
     ports:
       - "8000:8000"
     command: php -S 0.0.0.0:8000 -t public
+
+  frontend:
+    build: ./frontend
+    container_name: mon_stock_frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - php
