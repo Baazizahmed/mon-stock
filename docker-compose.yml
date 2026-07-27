@@ -1,0 +1,10 @@
+services:
+  php:
+    build: ./backend
+    container_name: mon_stock_php
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    command: php -S 0.0.0.0:8000 -t public
